@@ -1,0 +1,17 @@
+#caixa
+cd /home/gustavo/coder/BrassagemFront/WebContent
+tar -czvf brassagemApp.tar.gz bower_components/ dist/ pages/ plugins/ *.html 
+scp brassagemApp.tar.gz coder1@codersistemas.com.br:~
+
+ssh coder1@codersistemas.com.br
+
+#service tomcat8 stop
+#BikeOggi2018
+cd /var/lib/tomcat8/webapps/brassagens
+sudo rm -r brassagemApp.tar.gz dist/ index.html pages/
+cd -
+sudo cp brassagemApp.tar.gz /var/lib/tomcat8/webapps/brassagens
+cd /var/lib/tomcat8/webapps/brassagens
+sudo tar -xzvf brassagemApp.tar.gz 
+#service tomcat8 start
+BikeOggi2018
